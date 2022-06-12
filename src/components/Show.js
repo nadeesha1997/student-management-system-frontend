@@ -14,10 +14,14 @@ export const Show = (props) => {
   const id = props.match.params.id;
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
+  const [age, setAge] = useState(0);
+  const [grade, setGrade] = useState(0)
   useEffect(() => {
     axios.get("http://localhost:8080/api/"+id).then(r=>{
       setFirstName(r.data.firstName);
       setLastName(r.data.lastName)
+      setAge(r.data.age);
+      setGrade(r.data.grade);
     })
   },[])
 
@@ -29,8 +33,8 @@ export const Show = (props) => {
         <CardBody>
             <ul>
                 <li>Full Name: {firstName} {lastName}</li>
-                <li>Age: {firstName}</li>
-                <li>Grade: {lastName}</li>
+                <li>Age: {age}</li>
+                <li>Grade: {grade}</li>
             </ul>
         </CardBody>
         <CardFooter>

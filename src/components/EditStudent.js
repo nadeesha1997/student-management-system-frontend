@@ -25,7 +25,7 @@ export const EditStudent = (props) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    let postvalue={"firstName":firstName,"lastName":lastName};
+    let postvalue={"firstName":firstName,"lastName":lastName,"age":age,"grade":grade};
         console.log(postvalue);
         axios.put("http://localhost:8080/api",postvalue)
         .then(r=>console.log(r.data));
